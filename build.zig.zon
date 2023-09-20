@@ -1,0 +1,10 @@
+.{
+    .name = "cimgui",
+    .version = "0.1.0",
+    .dependencies = .{
+        .glfw = .{
+            .url = "https://pkg.machengine.org/glfw/92abc63294d389c8f2a546686b6c072930b029e0.tar.gz",
+            .hash = "12205a6ce386007b97e22ef4b78a4f68c98af2cd6e1fde82589191fda79b9de54d0d",
+        },
+    },
+}
