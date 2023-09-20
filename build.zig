@@ -11,6 +11,7 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    lib.defineCMacro("CIMGUI_USE_GLFW", "");
     lib.addIncludePath(.{ .path = "imgui" });
     lib.addIncludePath(.{ .path = "imgui/backends" });
 
