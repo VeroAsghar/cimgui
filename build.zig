@@ -11,10 +11,20 @@ pub fn build(b: *std.Build) void {
         .optimize = optimize,
     });
 
+    lib.addIncludePath(.{ .path = "imgui" });
+    lib.addIncludePath(.{ .path = "imgui/backends" });
+
+    lib.linkLibrary(b.dependency("glfw", .{
+        .target = target,
+        .optimize = optimize,
+    }).artifact("glfw"));
+
     lib.linkLibC();
+    lib.linkLibCpp();
     lib.addCSourceFiles(&src_files, &.{
         "-fno-exceptions",
         "-fno-rtti",
+        "-Wall",
     });
 
     b.installArtifact(lib);
@@ -27,4 +37,5 @@ const src_files = [_][]const u8{
     "imgui/imgui_demo.cpp",
     "imgui/imgui_tables.cpp",
     "imgui/imgui_widgets.cpp",
+    "imgui/backends/imgui_impl_glfw.cpp",
 };
