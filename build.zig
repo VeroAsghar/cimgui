@@ -12,8 +12,10 @@ pub fn build(b: *std.Build) void {
     });
 
     lib.defineCMacro("CIMGUI_USE_GLFW", "");
+    lib.defineCMacro("IMGUI_IMPL_API", "extern \"C\"");
     lib.addIncludePath(.{ .path = "imgui" });
     lib.addIncludePath(.{ .path = "imgui/backends" });
+    lib.addIncludePath(.{ .path = "generator/output" });
 
     lib.linkLibrary(b.dependency("glfw", .{
         .target = target,
