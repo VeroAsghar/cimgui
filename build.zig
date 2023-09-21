@@ -12,6 +12,7 @@ pub fn build(b: *std.Build) void {
     });
 
     lib.defineCMacro("CIMGUI_USE_GLFW", "");
+    lib.defineCMacro("CIMGUI_USE_OPENGL3", "");
     lib.defineCMacro("IMGUI_IMPL_API", "extern \"C\"");
     lib.addIncludePath(.{ .path = "imgui" });
     lib.addIncludePath(.{ .path = "imgui/backends" });
@@ -41,4 +42,5 @@ const src_files = [_][]const u8{
     "imgui/imgui_tables.cpp",
     "imgui/imgui_widgets.cpp",
     "imgui/backends/imgui_impl_glfw.cpp",
+    "imgui/backends/imgui_impl_opengl3.cpp",
 };
